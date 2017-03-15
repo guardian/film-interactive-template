@@ -1,0 +1,98 @@
+//Variables
+$c-background: #141414;
+$c-grey-dark: #161616;
+$c-divider: #474747;
+$c-grey-mid: #676767;
+$c-grey-light: #999;
+$c-grey-lightest: #ececec;
+$c-grey-lighterman: #1e4385;
+$c-white: #fff;
+$c-nearly-white: #F6F6F6;
+$c-media-default: #fb0;
+$c-media-bright: #FFE700;
+$c-share-border: #dddbd7;
+
+.fonts__egyptian { @include fs-headline(3); }
+.fonts__text-egyptian { @include fs-bodyCopy(2); }
+.fonts__sans { @include f-headlineSans; }
+.fonts__text-sans { @include fs-textSans(4); }
+
+body,
+figure.interactive {
+    margin: 0;
+    padding: 0;
+    background-color: $c-background;
+}
+
+// Link styles don't exist on the app
+a {
+    &,
+    &:hover,
+    &:active {
+        color: $c-grey-light;
+    }
+
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.interactive-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.interactive-es6-headline {
+	@include fs-headline(5);
+}
+
+.test-msg {
+	color: #005689;
+	@include fs-textSans(3);
+}
+
+.fonts {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-top: 24px;
+	li {
+		margin-bottom: 6px;
+	}
+}
+
+.has-curtains {
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        background-color: rgba(0,0,0,0.05);
+    }
+    &:before {
+        left: 0;
+        transform: translateX(-100%);
+    }
+    &:after {
+        right: 0;
+        transform: translateX(100%);
+    }
+}
+
+
+.should-fade-in {
+  opacity: 0.3;
+  transition: opacity 1200ms;
+  &.fade-in {
+    opacity: 1;
+    transition: opacity 1600ms;
+  }
+}
+
+html {
+    min-height: calc(100% + 36px);
+}

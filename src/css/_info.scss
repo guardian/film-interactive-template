@@ -1,0 +1,159 @@
+.doc-info {
+    padding: 3px 10px 0;
+    color: #dcdcdc;
+    font-size: 0;
+    line-height: 22px;
+    max-width: 580px;
+    margin: 0 auto;
+    position: relative;
+    @include mq(tablet) {
+        max-width: 700px;
+    }
+    @include mq(desktop) {
+        max-width: 940px;
+    }
+    @include mq(leftCol) {
+        max-width: 1080px;
+    }
+    @include mq(wide) {
+        max-width: 1240px;
+    }
+
+    .intro {
+        font-size: 16px;
+        display: inline-block;
+        vertical-align: top;
+        padding-bottom: 12px;
+
+        @include mq(weirdness) {
+            width: 340px;
+        }
+        @include mq(tablet) {
+            width: 460px;
+        }
+        @include mq(desktop) {
+            width: 540px;
+            margin-right: 160px
+        }
+        @include mq(leftCol) {
+            padding-left: 150px;
+            margin-right: 150px;
+        }
+        @include mq(wide) {
+            padding-left: 230px;
+        }
+        &__expansion {
+            display: none;
+            padding: 6px 0;
+            &.expanded {
+                display: block;
+            }
+        }
+        &__description {
+            p, ul {
+                margin: 11px 0;
+            }
+        }
+        &__expand {
+            @include icon-showmore;
+            @include fs-textSans(4);
+            text-indent: 4px;
+            transition: opacity 240ms;
+            cursor: pointer;
+            opacity: 0.66;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .expanded + .intro__expand {
+            @include icon-showless;
+        }
+        a {
+            color: inherit;
+            border-bottom: 1px solid $c-divider;
+            text-decoration: none;
+            &:hover {
+                color: $c-nearly-white;
+                border-color: $c-grey-light;
+            }
+        }
+    }
+    .meta {
+        vertical-align: top;
+        @include mq(weirdness) {
+            display: inline-block;
+            width: 220px;
+            margin-left: 20px;
+        }
+        &__date,
+        &__social,
+        &__supporter {
+            border-top: 1px solid #333;
+            color: $c-grey-lightest;
+            padding: 2px 0 12px;
+            @include fs-textSans(4);
+            line-height: 20px;
+        }
+        &__date {
+            margin-top: 12px;
+            @include icon-timestamp;
+            padding-left: 1px;
+            @include mq(weirdness) {
+                border-top: 0;
+                margin-top: 0;
+            }
+
+        }
+        &__social {
+            padding-top: 4px;
+            .interactive-share {
+                background-color: transparent;
+                border: 1px solid $c-grey-light;
+                opacity: 0.7;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+        &__supporter {
+            .supporter-info {
+                position: relative;
+                line-height: 22px;
+                @include icon-info;
+                cursor: pointer;
+            }
+            .supporter-logo {
+                img {
+                    margin-top: 1px;
+                    width: 108px;
+                    height: 45px;
+                }
+            }
+            @include mq(leftCol) {
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: 0;
+                padding-top: 1px;
+            }
+        }
+    }
+    .has-curtains {
+        @include mq(tablet) {
+            &:before {
+                left: -10px;
+            }
+            &:after {
+                right: -10px;
+            }
+        }
+        @include mq(leftCol) {
+            &:before {
+                left: -20px;
+            }
+            &:after {
+                right: -20px;
+            }
+        }
+    }
+}
